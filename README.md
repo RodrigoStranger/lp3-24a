@@ -1,5 +1,7 @@
 # Lenguaje de programacion 3
 
+## Datos del Autor: 
+- Rodrigo Infanzon Acosta
 
-## Datos del Autor: Rodrigo Infanzon Acosta
-## Ingenieria de Software
+## Laboratorios:
+## Laboratorio 1: Crear una matriz ingresando el n.

@@ -1,8 +1,8 @@
 # Lenguaje de Programación 3 
 
-## Autor: Rodrigo Emerson Infanzón Acosta
+## Rodrigo Emerson Infanzón Acosta
 
-## Contacto y Redes Sociales
+## Acerca del Autor
 - Facebook: [Rodrigo Infanzon Acosta](https://www.facebook.com/rodrigo.stranger.pe/)
 - Instagram: [rodrigo.stranger](https://www.instagram.com/rodrigo.stranger/)
 - WhatsApp: [+51948899033](https://wa.me/+51948899033)

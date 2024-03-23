@@ -1,7 +1,31 @@
-# Lenguaje de programacion 3
+# Lenguaje de Programación 3 
 
-## Datos del Autor: 
-- Rodrigo Infanzon Acosta
+## Autor: Rodrigo Emerson Infanzón Acosta
 
-## Laboratorios:
-## Laboratorio 1: Crear una matriz ingresando el n.
+## Contacto y Redes Sociales
+- Facebook: [Rodrigo Infanzon Acosta](https://www.facebook.com/rodrigo.stranger.pe/)
+- Instagram: [rodrigo.stranger](https://www.instagram.com/rodrigo.stranger/)
+- WhatsApp: [+51948899033](https://wa.me/+51948899033)
+  
+## Laboratorio 01
+- Impresión de un tablero de NxM.
+- Actualización del `tablero.cpp` usando el primer apellido del estudiante o una "X" en la diagonal.
+- Solución al problema de OmegaUp.
+- Problema: [El perrito que quiere un hueso](https://omegaup.com/arena/problem/El-perrito-que-quiere-un-hueso/)
+- Elaboración del informe respectivo.
+### Entregables
+- `lp3-24a/lab01/exercises/tablero.cpp` 
+- `lp3-24a/lab01/exercises/hueso.cpp` 
+- `lp3-24a/lab01/report/report01.dox`
+- `lp3-24a/lab01/report/report01.pdf`
+  
+## Laboratorio 02
+- Elección de un problema a resolver en OmegaUp.
+- Problema: [Digital Root](https://omegaup.com/arena/problem/DigitalRoot/)
+- Presentar métodos: Iterativo y Recursivo.
+- Elaboración del informe respectivo.
+### Entregables
+- `lp3-24a/lab02/exercises/digitalRootLoop.cpp`
+- `lp3-24a/lab02/exercises/digitalRootRecursive.cpp`
+- `lp3-24a/lab02/report/report02.dox`
+- `lp3-24a/lab02/report/report02.pdf`

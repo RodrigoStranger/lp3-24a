@@ -20,6 +20,11 @@ int DigitalRoot (int n) {
 }
 
 int main () {
-	cout << DigitalRoot(39);
+	int n;
+	cout<<"Ingrese un numero: ";
+	cin>>n;
+	if(n!=0){
+		cout<<"El numero digital de "<<n<<" es: "<<DigitalRoot(n);
+	} 
 	return 0;
 }

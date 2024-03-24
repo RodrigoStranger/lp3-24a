@@ -1,19 +1,25 @@
 #include <iostream>
 using namespace std;
 
-int DigitalRoot(int n) {
-    int entrada = n;
-    while(true) {
-        int entero = entrada / 10;
-        int residuo = entrada % 10;
-        if (entero == 0 && residuo < 9) {
-            return residuo;
-        }
-        entrada = entero + residuo;
-    }
+int DigitalRoot (int n) {
+	int entrada = n;
+	bool seguir = true;
+	while (seguir == true) {
+		int ent = 0;
+		int res = 0;
+		ent = entrada % 10;
+		res = entrada / 10;
+		if((ent + res) > 9){
+			seguir = true;
+		} else {
+			seguir = false;
+		}
+		entrada = ent + res;
+	}
+	return entrada;
 }
 
-int main() {
-    cout << DigitalRoot(154);
-    return 0;
+int main () {
+	cout << DigitalRoot(39);
+	return 0;
 }

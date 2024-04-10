@@ -1,22 +1,22 @@
 #include <iostream>
+#include <string>
 #include <vector>
+#include <fstream>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
-void InsertionSort(vector<int>& arr) { 
-    for (int i=1;i<arr.size();++i) { 
-        int key=arr[i];
-        int j=i-1;
-        while (j>-1 && arr[j]>key) {
-            arr[j + 1]=arr[j];
-            j=j-1;
+// Definimos nuestra funcion InsertionSort
+void InsertionSort(vector<int>& arr, int n) { 
+    for (int i = 1;i < n; i++) { 
+        int key = arr[i];
+        int j = i - 1;
+        while (j > - 1 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
         }
-        arr[j+1]=key;
-        cout<<"Iteracion "<<i<<": ";
-        for (int k=0;k<arr.size();++k) {
-            cout<<arr[k]<<" ";
-        }
-        cout<<endl;
+        arr[j + 1] = key;
     }
 }
 

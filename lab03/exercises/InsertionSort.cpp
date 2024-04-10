@@ -30,11 +30,20 @@ chrono::microseconds MedirTiempo(vector<int>& arr) {
     return duracion;
 }
 
-void PrintArray(vector<int>& arr) {
-    for (int i=0;i<arr.size();++i) {
-        cout<<arr[i]<<" ";
+// Definimos nuestra funcion para imprimir un vector
+void PrintArray(vector<int>& arr, int longitud) {
+    for (int i = 0; i < longitud; i++) {
+        cout <<arr[i] << " ";
     }
-    cout<<endl;
+}
+
+// Definimos nuestra funcion para imprimir un vector de vectores
+void PrintArrayContenedor(vector<vector<int>>& arr, int longitud) {
+    for (int i = 0; i < longitud; ++i) {
+        cout << i + 1 << ": ";
+        PrintArray(arr[i], arr[i].size());
+        cout<<endl;
+    }
 }
 
 int main() {

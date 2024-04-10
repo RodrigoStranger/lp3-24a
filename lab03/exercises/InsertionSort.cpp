@@ -61,15 +61,24 @@ vector<vector<int>> generarYAlmacenarPeoresCasos(int n) {
     }
     return peoresCasos;
 }
+
+// Funcion principal de ejecucion
 int main() {
-    vector<int> caso1={5,2,4,6,1,3};
-    cout<<"Array Inicial: ";
-    PrintArray(caso1);
-    cout<<endl;
-    cout<<"Ordenando el Array:"<<endl;
-    InsertionSort(caso1);
-    cout<<endl;
-    cout<<"Resultado Final: ";
-    PrintArray(caso1);
-    return 0;
+    // Creamos nuestro numero de casos
+    int casos = 10000;
+    // Generando Datos....
+    cout<<"Generando datos....";
+    // Generamos nuestro vector de vectores llamado Contenedor3 con el numero de casos establecidos
+	vector<vector<int>> Contenedor2 = generarYAlmacenarPeoresCasos(casos);
+    // Determinamos la longitud del vector de vectores
+    int longitud = Contenedor2.size();
+    // Generamos nuestro Archivo.dat, Ordenamos cada caso y medimos el tiempo de ejecucion
+    ofstream myfile;
+    myfile.open("InsertionSort.dat");
+    for (int i = 0; i < longitud; i++) {
+        myfile << i+1 << "\t" << MedirTiempo(Contenedor2[i]).count() << endl;
+    }
+	myfile.close();
+    // Datos generados....
+    cout<<"Datos generados...."<<endl;
 }

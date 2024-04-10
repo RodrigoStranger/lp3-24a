@@ -20,6 +20,16 @@ void InsertionSort(vector<int>& arr, int n) {
     }
 }
 
+// Definimos nuestra funcion en la cual mide el tiempo en microsegundos
+chrono::microseconds MedirTiempo(vector<int>& arr) {
+    typedef chrono::high_resolution_clock clock;
+    auto inicio = clock::now();
+    InsertionSort(arr, arr.size());
+    auto fin = clock::now();
+    auto duracion = chrono::duration_cast<chrono::microseconds>(fin - inicio);
+    return duracion;
+}
+
 void PrintArray(vector<int>& arr) {
     for (int i=0;i<arr.size();++i) {
         cout<<arr[i]<<" ";

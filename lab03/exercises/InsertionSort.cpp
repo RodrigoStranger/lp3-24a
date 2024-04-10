@@ -81,4 +81,5 @@ int main() {
 	myfile.close();
     // Datos generados....
     cout<<"Datos generados...."<<endl;
+    return 0;
 }

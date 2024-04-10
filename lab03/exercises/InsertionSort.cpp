@@ -6,6 +6,7 @@
 #include <thread>
 
 using namespace std;
+using namespace std::chrono;
 
 // Definimos nuestra funcion InsertionSort
 void InsertionSort(vector<int>& arr, int n) { 
@@ -46,6 +47,20 @@ void PrintArrayContenedor(vector<vector<int>>& arr, int longitud) {
     }
 }
 
+// Definimos nuestra funcion para generar un contenedor de peores casos
+vector<vector<int>> generarYAlmacenarPeoresCasos(int n) {
+    vector<vector<int>> peoresCasos;
+    for (int i = 1; i <= n; i++) {
+        vector<int> peorCaso(i);
+        int valor = i;
+        for (int j = 0; j < i; j++) {
+            peorCaso[j] = valor;
+            --valor;
+        }
+        peoresCasos.push_back(peorCaso);
+    }
+    return peoresCasos;
+}
 int main() {
     vector<int> caso1={5,2,4,6,1,3};
     cout<<"Array Inicial: ";

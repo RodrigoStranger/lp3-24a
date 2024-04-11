@@ -21,3 +21,16 @@ void BubbleSort(vector<int>& arr, int size) {
 	}	
 }	  
 
+// Definimos nuestra funcion en la cual mide el tiempo en microsegundos
+chrono::microseconds MedirTiempo(vector<int>& arr) {
+    typedef chrono::high_resolution_clock clock;
+    auto inicio = clock::now();
+    BubbleSort(arr, arr.size());
+    auto fin = clock::now();
+    auto duracion = chrono::duration_cast<chrono::microseconds>(fin - inicio);
+    return duracion;
+}
+
+int main () {
+
+}

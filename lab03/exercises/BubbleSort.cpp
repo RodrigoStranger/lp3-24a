@@ -47,6 +47,20 @@ void PrintArrayContenedor(const vector<vector<int>>& arr,const int longitud) {
     }
 }
 
+// Definimos nuestra funcion para generar un contenedor de peores casos
+vector<vector<int>> GenerarYAlmacenarPeoresCasos(int n) {
+    vector<vector<int>> peoresCasos;
+    for (int i = 1; i <= n; i++) {
+        vector<int> peorCaso(i);
+        int valor = i;
+        for (int j = 0; j < i; j++) {
+            peorCaso[j] = valor;
+            --valor;
+        }
+        peoresCasos.push_back(peorCaso);
+    }
+    return peoresCasos;
+}
 
 int main () {
 

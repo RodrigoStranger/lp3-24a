@@ -10,10 +10,10 @@ using namespace std::chrono;
 
 // Definimos nuestra funcion InsertionSort
 void InsertionSort(vector<int>& arr, int n) { 
-    for (int i = 1;i < n; i++) { 
+    for (int i = 1; i < n; i++) { 
         int key = arr[i];
         int j = i - 1;
-        while (j > - 1 && arr[j] > key) {
+        while (j > -1 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j = j - 1;
         }
@@ -32,14 +32,14 @@ chrono::microseconds MedirTiempo(vector<int>& arr) {
 }
 
 // Definimos nuestra funcion para imprimir un vector
-void PrintArray(vector<int>& arr, int longitud) {
+void PrintArray(const vector<int>& arr,const int longitud) {
     for (int i = 0; i < longitud; i++) {
         cout <<arr[i] << " ";
     }
 }
 
 // Definimos nuestra funcion para imprimir un vector de vectores
-void PrintArrayContenedor(vector<vector<int>>& arr, int longitud) {
+void PrintArrayContenedor(const vector<vector<int>>& arr,const int longitud) {
     for (int i = 0; i < longitud; ++i) {
         cout << i + 1 << ": ";
         PrintArray(arr[i], arr[i].size());
@@ -48,7 +48,7 @@ void PrintArrayContenedor(vector<vector<int>>& arr, int longitud) {
 }
 
 // Definimos nuestra funcion para generar un contenedor de peores casos
-vector<vector<int>> generarYAlmacenarPeoresCasos(int n) {
+vector<vector<int>> GenerarYAlmacenarPeoresCasos(int n) {
     vector<vector<int>> peoresCasos;
     for (int i = 1; i <= n; i++) {
         vector<int> peorCaso(i);
@@ -65,21 +65,32 @@ vector<vector<int>> generarYAlmacenarPeoresCasos(int n) {
 // Funcion principal de ejecucion
 int main() {
     // Creamos nuestro numero de casos
-    int casos = 10000;
+    int casos;
+    cout<< "Ingrese el numero de casos a tratar: ";
+    cin >> casos;
+    
+    // Generamos nuestro vector de vectores llamado Contenedor2 con el numero de casos establecidos
+    vector<vector<int>> Contenedor2 = GenerarYAlmacenarPeoresCasos(casos);
+    
     // Generando Datos....
-    cout<<"Generando datos....";
-    // Generamos nuestro vector de vectores llamado Contenedor3 con el numero de casos establecidos
-	vector<vector<int>> Contenedor2 = generarYAlmacenarPeoresCasos(casos);
-    // Determinamos la longitud del vector de vectores
-    int longitud = Contenedor2.size();
-    // Generamos nuestro Archivo.dat, Ordenamos cada caso y medimos el tiempo de ejecucion
-    ofstream myfile;
-    myfile.open("InsertionSort.dat");
-    for (int i = 0; i < longitud; i++) {
-        myfile << i+1 << "\t" << MedirTiempo(Contenedor2[i]).count() << endl;
+    cout << "Generando datos...." << endl;
+
+    // Abriendo el archivo para escritura
+    ofstream myfile("InsertionSort.dat");
+
+    // Ordenamos cada caso y medimos el tiempo de ejecución de cada caso y duracion final del progama, escribiendo en el archivo
+    typedef chrono::high_resolution_clock clock;
+    auto inicio1 = clock::now();
+    for (int i = 0; i < casos; i++) {
+        auto tiempo = MedirTiempo(Contenedor2[i]);
+        myfile << i + 1 << "\t" << tiempo.count() << endl;
     }
-	myfile.close();
+    auto fin1 = clock::now();
+    auto duracion1 = chrono::duration_cast<chrono::seconds>(fin1 - inicio1);
+    myfile.close();
+    
     // Datos generados....
-    cout<<"Datos generados...."<<endl;
+    cout << "Datos generados...." << endl;
+    cout << "Duracion final de los ordenamientos: "<<duracion1.count()<<" segundos";
     return 0;
 }

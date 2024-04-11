@@ -1,3 +1,4 @@
+// Commit 1: 6e4a179
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,6 +9,7 @@
 using namespace std;
 using namespace std::chrono;
 
+// Commit 1: 6e4a179
 // Definimos nuestra Particion
 int Partition(vector<int>& arr, int low, int high) {
     int pivot = arr[high];
@@ -22,6 +24,7 @@ int Partition(vector<int>& arr, int low, int high) {
   return (i+1);
 }
 
+// Commit 1: 6e4a179
 // Definimos nuestro algoritmo QuickSort       
 void QuickSort(vector<int>& arr, int low, int high) {
     if(low < high) {
@@ -31,6 +34,7 @@ void QuickSort(vector<int>& arr, int low, int high) {
     }
 }  
 
+// Commit 2: c302d58
 // Definimos nuestra funcion en la cual mide el tiempo en microsegundos
 chrono::microseconds MedirTiempo(vector<int>& arr) {
     typedef chrono::high_resolution_clock clock;
@@ -41,6 +45,7 @@ chrono::microseconds MedirTiempo(vector<int>& arr) {
     return duracion;
 }
 
+// Commit 2: c302d58
 // Definimos nuestra funcion para imprimir un vector
 void PrintArray(const vector<int>& arr,const int longitud) {
     for (int i = 0; i < longitud; i++) {
@@ -48,6 +53,7 @@ void PrintArray(const vector<int>& arr,const int longitud) {
     }
 }
 
+// Commit 2: c302d58
 // Definimos nuestra funcion para imprimir un vector de vectores
 void PrintArrayContenedor(const vector<vector<int>>& arr,const int longitud) {
     for (int i = 0; i < longitud; ++i) {
@@ -57,6 +63,7 @@ void PrintArrayContenedor(const vector<vector<int>>& arr,const int longitud) {
     }
 }
 
+// Commit 3: b6ae861
 // Definimos nuestra funcion para generar un contenedor de peores casos
 vector<vector<int>> GenerarYAlmacenarPeoresCasos(int n) {
     vector<vector<int>> peoresCasos;
@@ -72,6 +79,7 @@ vector<vector<int>> GenerarYAlmacenarPeoresCasos(int n) {
     return peoresCasos;
 }
 
+// Commit 4: ec995f6
 // Funcion principal de ejecucion
 int main() {
     // Creamos nuestro numero de casos
@@ -103,8 +111,4 @@ int main() {
     cout << "Datos generados...." << endl;
     cout << "Duracion final de los ordenamientos: "<<duracion1.count()<<" segundos";
     return 0;
-}
-
-int main() {
-
 }

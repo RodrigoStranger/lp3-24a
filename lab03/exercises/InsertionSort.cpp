@@ -1,3 +1,4 @@
+// Commit 2: cc937eb4f
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,9 +7,13 @@
 #include <thread>
 
 using namespace std;
+
+// Commit 5: f6acea3
 using namespace std::chrono;
 
-// Definimos nuestra funcion InsertionSort
+// Commmit 1: c88f6a2
+// Commit 2: cc937eb4
+// Definimos nuestra funcion InsertionSort  
 void InsertionSort(vector<int>& arr, int n) { 
     for (int i = 1; i < n; i++) { 
         int key = arr[i];
@@ -21,6 +26,7 @@ void InsertionSort(vector<int>& arr, int n) {
     }
 }
 
+// Commit 3: 43efb6e
 // Definimos nuestra funcion en la cual mide el tiempo en microsegundos
 chrono::microseconds MedirTiempo(vector<int>& arr) {
     typedef chrono::high_resolution_clock clock;
@@ -31,6 +37,7 @@ chrono::microseconds MedirTiempo(vector<int>& arr) {
     return duracion;
 }
 
+// Commit 4: 81e701e
 // Definimos nuestra funcion para imprimir un vector
 void PrintArray(const vector<int>& arr,const int longitud) {
     for (int i = 0; i < longitud; i++) {
@@ -38,6 +45,7 @@ void PrintArray(const vector<int>& arr,const int longitud) {
     }
 }
 
+// Commit 7: 31fa36f
 // Definimos nuestra funcion para imprimir un vector de vectores
 void PrintArrayContenedor(const vector<vector<int>>& arr,const int longitud) {
     for (int i = 0; i < longitud; ++i) {
@@ -47,6 +55,7 @@ void PrintArrayContenedor(const vector<vector<int>>& arr,const int longitud) {
     }
 }
 
+// Commit 5: f6acea3
 // Definimos nuestra funcion para generar un contenedor de peores casos
 vector<vector<int>> GenerarYAlmacenarPeoresCasos(int n) {
     vector<vector<int>> peoresCasos;
@@ -62,6 +71,8 @@ vector<vector<int>> GenerarYAlmacenarPeoresCasos(int n) {
     return peoresCasos;
 }
 
+// Commit 6: ee85f6b
+// Commit 7: 31fa36f
 // Funcion principal de ejecucion
 int main() {
     // Creamos nuestro numero de casos

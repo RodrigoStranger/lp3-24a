@@ -23,7 +23,7 @@ void BubbleSort(vector<int>& arr, int size) {
 	}	
 }	  
 
-Commit 2: b25af76
+// Commit 2: b25af76
 // Definimos nuestra funcion en la cual mide el tiempo en microsegundos
 chrono::microseconds MedirTiempo(vector<int>& arr) {
     typedef chrono::high_resolution_clock clock;

@@ -1,3 +1,4 @@
+// Commit 1: 3a59951
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,6 +9,7 @@
 using namespace std;
 using namespace std::chrono;
 
+// Commit 1: 3a59951
 // Definimos el Ordenamiento Burbuja
 void BubbleSort(vector<int>& arr, int size) {
 	for (int i = 0; i < size - 1; i++) {
@@ -21,6 +23,7 @@ void BubbleSort(vector<int>& arr, int size) {
 	}	
 }	  
 
+Commit 2: b25af76
 // Definimos nuestra funcion en la cual mide el tiempo en microsegundos
 chrono::microseconds MedirTiempo(vector<int>& arr) {
     typedef chrono::high_resolution_clock clock;
@@ -31,6 +34,7 @@ chrono::microseconds MedirTiempo(vector<int>& arr) {
     return duracion;
 }
 
+// Commit 3: e5b362f
 // Definimos nuestra funcion para imprimir un vector
 void PrintArray(const vector<int>& arr,const int longitud) {
     for (int i = 0; i < longitud; i++) {
@@ -38,6 +42,7 @@ void PrintArray(const vector<int>& arr,const int longitud) {
     }
 }
 
+// Commit 3: e5b362f
 // Definimos nuestra funcion para imprimir un vector de vectores
 void PrintArrayContenedor(const vector<vector<int>>& arr,const int longitud) {
     for (int i = 0; i < longitud; ++i) {
@@ -47,6 +52,7 @@ void PrintArrayContenedor(const vector<vector<int>>& arr,const int longitud) {
     }
 }
 
+// Commit 4: 52df16a
 // Definimos nuestra funcion para generar un contenedor de peores casos
 vector<vector<int>> GenerarYAlmacenarPeoresCasos(int n) {
     vector<vector<int>> peoresCasos;
@@ -62,6 +68,8 @@ vector<vector<int>> GenerarYAlmacenarPeoresCasos(int n) {
     return peoresCasos;
 }
 
+// Commit 5: 973f491
+// Funcion principal
 int main() {
     // Creamos nuestro numero de casos
     int casos;

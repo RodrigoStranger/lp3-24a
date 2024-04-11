@@ -62,6 +62,34 @@ vector<vector<int>> GenerarYAlmacenarPeoresCasos(int n) {
     return peoresCasos;
 }
 
-int main () {
+int main() {
+    // Creamos nuestro numero de casos
+    int casos;
+    cout<< "Ingrese el numero de casos a tratar: ";
+    cin >> casos;
+    
+    // Generamos nuestro vector de vectores llamado Contenedor con el numero de casos establecidos
+    vector<vector<int>> Contenedor = GenerarYAlmacenarPeoresCasos(casos);
+    
+    // Generando Datos....
+    cout << "Generando datos...." << endl;
 
+    // Abriendo el archivo para escritura
+    ofstream myfile("BubbleSort.dat");
+
+    // Ordenamos cada caso y medimos el tiempo de ejecución de cada caso y duracion final del progama, escribiendo en el archivo
+    typedef chrono::high_resolution_clock clock;
+    auto inicio1 = clock::now();
+    for (int i = 0; i < casos; i++) {
+        auto tiempo = MedirTiempo(Contenedor[i]);
+        myfile << i + 1 << "\t" << tiempo.count() << endl;
+    }
+    auto fin1 = clock::now();
+    auto duracion1 = chrono::duration_cast<chrono::seconds>(fin1 - inicio1);
+    myfile.close();
+    
+    // Datos generados....
+    cout << "Datos generados...." << endl;
+    cout << "Duracion final de los ordenamientos: "<<duracion1.count()<<" segundos";
+    return 0;
 }

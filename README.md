@@ -29,3 +29,20 @@
 - `lp3-24a/lab02/exercises/digitalRootRecursive.cpp`
 - `lp3-24a/lab02/report/report02.dox`
 - `lp3-24a/lab02/report/report02.pdf`
+
+## Laboratorio 03
+- Análisis de los algoritmos de ordenamiento: InsertionSort, QuickSort, MergeSort, BubbleSort.
+- Resolución del algoritmo de ordenamiento: InsertionSort y QuickSort.
+- Presentar los métodos de ordenamiento en análisis en listas de peores casos.
+- Uso del programa gráfico gnuplot.
+- Análisis de tiempos de ejecución en cualquier lenguaje de programación.
+- Presentación del informe respectivo.
+### Entregables
+- `lp3-24a/lab03/exercises/InsertionSort.cpp`
+- `lp3-24a/lab03/exercises/QuickSort.cpp`
+- `lp3-24a/lab03/exercises/BubbleSort.cpp`
+- `lp3-24a/lab03/dat/InsertionSort.dat`
+- `lp3-24a/lab03/dat/QuickSort.dat`
+- `lp3-24a/lab03/dat/BubbleSort.dat`
+- `lp3-24a/lab02/report/report03.zip`
+- `lp3-24a/lab02/report/report03.pdf`

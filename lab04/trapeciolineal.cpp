@@ -37,63 +37,93 @@ double calcular_area_total(double n, double largo){
     }
     return area_total;
 }
-double area_total_funcion(double &limiteinferior, double  &limitesuperior) {
+
+// limiteinferior==0 && limitesuperior > 0
+double areatotal1(double &limiteinferior, double  &limitesuperior){
     bool llave =true;
     vector<double> areas;
     double areatotalverdadera = 0;
+    int c = 1;
+    double temp = 0;
+    
     while(llave) {
-        if(limiteinferior==0 && limitesuperior > 0) {
-            int c = 1;
-            for(int i=0;i<c;i++){
-                
-                double area =1;
-                areas.push_back(area);
-                if(c>1 && areas[c]==areas[c-1]){
-                    double areatotalverdadera =  areas[i];
-                    llave = false;
-                } 
-            }
-            c++;
-        } else if(limiteinferior>0 && limitesuperior > 0) {
-            int c = 1;
-            for(int i=0;i<c;i++){
-                
-                double area =1;
-                areas.push_back(area);
-                if(c>1 && areas[c]==areas[c-1]){
-                    areatotalverdadera =  areas[i];
-                    llave = false;
-                } 
-            }
-            c++;
-        } else if(limiteinferior<0 && limitesuperior==0){
-            int c = 1;
-            for(int i=0;i<c;i++){
-                
-                double area =1;
-                areas.push_back(area);
-                if(c>1 && areas[c]==areas[c-1]){
-                    double areatotalverdadera =  areas[i];
-                    llave = false;
-                } 
-            }
-            c++;
-        } else if(limiteinferior<0 && limitesuperior<0){
-            int c = 1;
-            for(int i=0;i<c;i++){
-                
-                double area =1;
-                areas.push_back(area);
-                if(c>1 && areas[c]==areas[c-1]){
-                    double areatotalverdadera =  areas[i];
-                    llave = false;
-                } 
-            }
-            c++;
+        for(int i=0;i<c;i++){
+        /// implementacion 1
+        double area =1;
+        areas.push_back(area);
+        if(c>1 && areas[c]==areas[c-1]){
+            areatotalverdadera =  areas[i];
+            llave = false;
+        } 
         }
+    c++;
     }
     return areatotalverdadera;
 }
+
+// limiteinferior>0 && limitesuperior > 0
+double areatotal2(double &limiteinferior, double  &limitesuperior){
+    bool llave =true;
+    vector<double> areas;
+    double areatotalverdadera = 0;
+    int c = 1;
+    while(llave) {
+        for(int i=0;i<c;i++){
+        /// implementacion
+        double area =1;
+        areas.push_back(area);
+        if(c>1 && areas[c]==areas[c-1]){
+            areatotalverdadera =  areas[i];
+            llave = false;
+        } 
+        }
+    c++;
+    }
+    return areatotalverdadera;
+}
+
+// limiteinferior<0 && limitesuperior==0
+double areatotal3(double &limiteinferior, double  &limitesuperior){
+    bool llave =true;
+    vector<double> areas;
+    double areatotalverdadera = 0;
+    int c = 1;
+    while(llave) {
+        for(int i=0;i<c;i++){
+        /// implementacion
+        double area =1;
+        areas.push_back(area);
+        if(c>1 && areas[c]==areas[c-1]){
+            areatotalverdadera =  areas[i];
+            llave = false;
+        } 
+        }
+    c++;
+    }
+    return areatotalverdadera;  
+}
+
+// limiteinferior<0 && limitesuperior<0
+double areatotal4(double &limiteinferior, double  &limitesuperior){
+    bool llave =true;
+    vector<double> areas;
+    double areatotalverdadera = 0;
+    int c = 1;
+    while(llave) {
+        for(int i=0;i<c;i++){
+        /// implementacion
+        double area =1;
+        areas.push_back(area);
+        if(c>1 && areas[c]==areas[c-1]){
+            areatotalverdadera =  areas[i];
+            llave = false;
+        } 
+        }
+    c++;
+    }
+    return areatotalverdadera;
+}
+
 void GenerarArchivo(int numDatos) {
     ofstream archivo("funcion.dat");
     for (int x = 0; x <= numDatos; x++){

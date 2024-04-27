@@ -1,0 +1,10 @@
+# Ignorar archivos ejecutables de Java
+*.class
+
+# Ignorar archivos ejecutables de Go
+*.exe
+*.out
+
+# Ignorar archivos ejecutables de C++
+*.out
+*.exe

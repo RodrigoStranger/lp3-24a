@@ -8,15 +8,13 @@
 using namespace std;
 
 class Trapecio {
-    private:
-        double altura;
-        double basemayor;
-        double basemenor;
-    public:
-        Trapecio(double _altura, double _basemayor, double _basemenor): 
-            altura(_altura), basemayor(_basemayor), basemenor(_basemenor) {}
-
-        double calculararea() {return ((basemayor+basemenor)*altura)/2;}
+private:
+    double altura;
+    double basemayor;
+    double basemenor;
+public:
+    Trapecio(double _altura, double _basemayor, double _basemenor): altura(_altura), basemayor(_basemayor), basemenor(_basemenor) {}
+    double calculararea() {return ((basemayor+basemenor)*altura)/2;}
 };
 
 double y(double x) { return 2*pow(x,2)+1;}

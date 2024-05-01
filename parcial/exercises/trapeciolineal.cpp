@@ -55,9 +55,10 @@ void areatotal(double limiteinferior, double limitesuperior, int precision) {
         if (areas.size()>1 && abs(areas[c-1]-areas[c-2])<tolerancia) {
             areatotalverdadera=areas[c-1];
             ofstream myfile("Trapeciolineal2.dat");
-            for(int i=0;i<tiempos.size();i++) {
+            int sizet= tiempos.size();
+            for(int i=0;i<sizet;i++) {
                 cout<<"Con "<<i+1<<" trapecios, el area calculada es: "<<areas[i]<<endl;
-                if (i!=tiempos.size()-1) { // Evitar imprimir una línea vacía después del ultimo elemento
+                if (i!=sizet-1) { // Evitar imprimir una línea vacía después del ultimo elemento
                     myfile<<i+1<<"\t"<<tiempos[i]<<endl;
                 } else {
                     myfile<<i+1<<"\t"<<tiempos[i]; // No agregar un salto de línea despues del último elemento

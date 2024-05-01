@@ -21,7 +21,7 @@ public:
 double y(double x) { return 2*pow(x,2)+1;}
 
 
-double areatotal(double limiteinferior, double limitesuperior, int precision) {
+void areatotal(double limiteinferior, double limitesuperior, int precision) {
     vector<double> areas;
     double areatotalverdadera=0;
     int c=1;
@@ -47,7 +47,7 @@ double areatotal(double limiteinferior, double limitesuperior, int precision) {
         areas.push_back(sum_areas);
         if (areas.size()>1 && abs(areas[c-1]-areas[c-2])<tolerancia) {
             areatotalverdadera=areas[c-1];
-            return areatotalverdadera;
+            cout<<"El area total es: "<<areatotalverdadera;
             break;
         }    
         c++;
@@ -66,9 +66,38 @@ void saludarsegunhora() {
 }
 
 int main() {
-    double limitesuperior = 50;
-    double limiteinferior = 0;
-    double precision = 5; 
-    cout << areatotal1(limiteinferior, limitesuperior, precision);
+    saludarsegunhora();
+    while (true) {
+        double limitesuperior;
+        double limiteinferior;
+        double precision;
+        cout<<"Digite el limite inferior: ";
+        cin>>limiteinferior;
+        cout<<"Digite el limite superior: ";
+        cin>>limitesuperior;
+        cout<<endl;
+        if (limitesuperior>limiteinferior) {
+            while(true) {
+                cout<<"Digite el nivel de precision"<<endl;
+                cout<<"Entre mas alto sea el nivel de precision, se incrementara el numero de trapecios a calcular y"<<endl;
+                cout<<"por ende el tiempo"<<endl;
+                cout<<"Nivel de precision: ";
+                cin>>precision;
+                if (precision>0) {
+                    areatotal(limiteinferior, limitesuperior, precision);
+                    cout<<endl;
+                    break;
+                } else {
+                    cout<<"Precision no valida, por favor ingrese un valor positivo."<<endl;
+                }
+            }
+        } else {
+            cout<<"Valores incorrectos o no lógicos."<<endl;
+            cout<<"El limite superior debe ser mayor que el limite inferior."<<endl;
+            cout<<endl;
+            cout<<"Ingrese denuevo los parametros correctos:"<<endl;
+        }
+        break;
+    }
     return 0;
 }

@@ -21,7 +21,7 @@ public:
 double y(double x) { return 2*pow(x,2)+1;}
 
 
-double areatotal1(double limiteinferior, double limitesuperior, int precision) {
+double areatotal(double limiteinferior, double limitesuperior, int precision) {
     vector<double> areas;
     double areatotalverdadera=0;
     int c=1;
@@ -31,9 +31,9 @@ double areatotal1(double limiteinferior, double limitesuperior, int precision) {
         double altura=0;
         double sum_areas=0;
         double temp;
-        if( (limiteinferior>0 && limiteinferior>limitesuperior) || (limiteinferior>0 && limiteinferior<limitesuperior)|| (limitesuperior>0 && limiteinferior<0)){
+        if((limiteinferior>0 && limitesuperior>limiteinferior) || (limitesuperior<0 && limitesuperior>limiteinferior) || (limiteinferior<0 && limitesuperior>0)){
             temp=limiteinferior;
-        }else if(limiteinferior==0 && limitesuperior>0 || (limitesuperior==0 && limiteinferior<0) ){
+        }else if((limiteinferior==0 && limitesuperior>limiteinferior) || (limitesuperior==0 && limiteinferior<limitesuperior)){
             temp=0;
         }
         int c2=1;

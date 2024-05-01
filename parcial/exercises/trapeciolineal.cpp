@@ -19,7 +19,7 @@ public:
 
 double y(double x) { return 2*pow(x,2)+1;}
 
-// limiteinferior==0 && limitesuperior > 0  || limiteinferior<0 && limitesuperior==0
+
 double areatotal1(double limiteinferior, double limitesuperior, int precision) {
     vector<double> areas;
     double areatotalverdadera=0;
@@ -29,7 +29,12 @@ double areatotal1(double limiteinferior, double limitesuperior, int precision) {
     while(true) {  
         double altura=0;
         double sum_areas=0;
-        double temp=0;
+        double temp;
+        if( (limiteinferior>0 && limiteinferior>limitesuperior) || (limiteinferior>0 && limiteinferior<limitesuperior)|| (limitesuperior>0 && limiteinferior<0)){
+            temp=limiteinferior;
+        }else if(limiteinferior==0 && limitesuperior>0 || (limitesuperior==0 && limiteinferior<0) ){
+            temp=0;
+        }
         int c2=1;
         while(c2<=c) {
             altura=(limitesuperior-limiteinferior)/c;
@@ -46,28 +51,7 @@ double areatotal1(double limiteinferior, double limitesuperior, int precision) {
         }    
         c++;
     }
-}
-
-// limiteinferior>0 && limitesuperior > 0 || limiteinferior<0 && limitesuperior<0
-/* double areatotal2(double limiteinferior, double  limitesuperior){
-    bool llave =true;
-    vector<double> areas;
-    double areatotalverdadera = 0;
-    int c = 1;
-    while(llave) {
-        for(int i=0;i<c;i++){
-        /// implementacion
-        double area =1;
-        areas.push_back(area);
-        if(c>1 && areas[c]==areas[c-1]){
-            areatotalverdadera =  areas[i];
-            llave = false;
-        } 
-        }
-    c++;
-    }
-    return areatotalverdadera;
-} */
+} 
 
 int main() {
     double limitesuperior = 50;

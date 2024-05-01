@@ -53,6 +53,17 @@ double areatotal1(double limiteinferior, double limitesuperior, int precision) {
     }
 } 
 
+void saludarsegunhora() {
+    time_t ahora = time(0); 
+    tm *horaLocal = localtime(&ahora); 
+    int hora = horaLocal->tm_hour;
+    if (hora>=6 && hora<12) {
+        cout<<"Buenos días, al sistema para hallar la integral definida aproximada con el metodo del trapecio"<<endl;
+    } else if (hora>=12 && hora<18) {
+        cout<<"Buenas tardes, al sistema para hallar la integral definida aproximada con el metodo del trapecio"<<endl;
+    } else { cout<<"Buenas noches, al sistema para hallar la integral definida aproximada con el metodo del trapecio"<<endl;}
+}
+
 int main() {
     double limitesuperior = 50;
     double limiteinferior = 0;

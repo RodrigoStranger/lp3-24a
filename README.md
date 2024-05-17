@@ -46,3 +46,18 @@
 - `lp3-24a/lab03/dat/BubbleSort.dat`
 - `lp3-24a/lab02/report/report03.zip`
 - `lp3-24a/lab02/report/report03.pdf`
+## Parcial
+- Análisis del problema del método del trapecio en integrales definidas.
+- Resolución del algoritmo por medio de la programación secuencial.
+- Resolución del algoritmo por medio de la programación paralela, uso de hilos.
+- Análisis de los tiempos de ejecución por cada paradigma en gnuplot: programación secuencial vs programación paralela.
+- Presentación del informe respectivo.
+### Entregables
+- `lp3-24a/parcial/exercises/InsertionSort.cpp`
+- `lp3-24a/parcial/exercises/trapeciolineal.cpp`
+- `lp3-24a/parcial/exercises/traecioparalelo.cpp`
+- `lp3-24a/parcial/dat/TrapecioSecuencial1.dat`
+- `lp3-24a/parcial/dat/TrapecioSecuencial.dat`
+- `lp3-24a/parcial/dat/TrapecioParalelo.dat`
+- `lp3-24a/parcial/report/partial.zip`
+- `lp3-24a/parcial/report/partial.pdf`

@@ -48,10 +48,11 @@ void generararchivo(vector<double> tiempos, vector<double> areas) {
 
 // Función para calcular el área usando n trapecios
 double calculartrapecio_n(double contadordetrapecios, double altura, double temp, double sum_areas) {
+    cout << static_cast<int>(contadordetrapecios);
     for (int i = 0; i < contadordetrapecios; i++) { 
         unique_ptr<Trapecio> trapecio(new Trapecio(altura, y(temp + altura), y(temp))); 
         double area_actual = trapecio->calculararea(); 
-        cout << static_cast<int>(contadordetrapecios) << " " << area_actual << " ";
+        cout << " " << area_actual << " ";
         sum_areas = sum_areas + area_actual; 
         temp = temp + altura; 
     }
@@ -83,7 +84,8 @@ void areatotal(double limiteinferior, double limitesuperior) {
         
         if(areas.size() > 1 && abs(areas[contadordetrapecios - 1] - areas[contadordetrapecios - 2]) < tolerancia) { 
             //generararchivo(tiempos, areas); // Genera el archivo con los datos
-            cout << "El área total calculada entre los intervalos " << limiteinferior << " a " << limitesuperior << " es aproximadamente: " << areas[contadordetrapecios - 1] << " unidades cuadradas" << endl; // Imprime el resultado final
+            cout << endl;
+            cout << "El area total calculada entre los intervalos " << limiteinferior << " a " << limitesuperior << " es aproximadamente: " << areas[contadordetrapecios - 1] << " unidades cuadradas" << endl; // Imprime el resultado final
             cout << "Trapecios maximos usados: " << contadordetrapecios << " trapecios" << endl; 
             cout << "Decimales trabajados: " << precision_general << endl; 
             cout << "Tolerancia usada: " << tolerancia << endl; 

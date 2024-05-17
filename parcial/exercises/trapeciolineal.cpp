@@ -11,8 +11,8 @@ using namespace std;
 using namespace chrono; 
 
 string n_archivo_2 = "TrapecioSecuencial.csv";
-int tolerancia_general = 6;
-int precision_general = 6;
+int tolerancia_general = 5;
+int precision_general = 5;
 int contadordetrapecios = 1; 
 string n_archivo = "TrapecioSecuencial.dat"; 
 
@@ -30,12 +30,12 @@ public:
 
 double y(double x) { return 2 * pow(x, 2) + 1;}
 
-
+/*
 void generararchivo(vector<double> tiempos, vector<double> areas) {
     ofstream myfile(n_archivo); 
     int sizet = tiempos.size(); 
     for(int i = 0; i < sizet; i++) { 
-        cout << "Con " << i + 1 << " trapecios, el área calculada es: " << areas[i] << endl; 
+        cout << "Con " << i + 1 << " trapecios, el area calculada es: " << areas[i] << endl; 
         if(i != sizet - 1) {
             myfile << i + 1 << "\t" << tiempos[i] << endl; 
         } else {
@@ -45,13 +45,15 @@ void generararchivo(vector<double> tiempos, vector<double> areas) {
     myfile.close(); 
     cout << endl;
 }
+*/
 
-// Función para calcular el área usando n trapecios
+// En funcion es dificil escribir archivos
+/*
 double calculartrapecio_n(double contadordetrapecios, double altura, double temp, double sum_areas) {
     cout << static_cast<int>(contadordetrapecios);
-    for (int i = 0; i < contadordetrapecios; i++) { 
+    for(int i = 0; i < contadordetrapecios; i++) { 
         unique_ptr<Trapecio> trapecio(new Trapecio(altura, y(temp + altura), y(temp))); 
-        double area_actual = trapecio->calculararea(); 
+        double area_actual = trapecio->calculararea();
         cout << " " << area_actual << " ";
         sum_areas = sum_areas + area_actual; 
         temp = temp + altura; 
@@ -59,6 +61,7 @@ double calculartrapecio_n(double contadordetrapecios, double altura, double temp
     cout << sum_areas<<endl;
     return sum_areas; 
 }
+*/
 
 void pusheardatos(vector<double>& tiempos, double tiempo, vector<double>& areas, double sum_areas) {
     tiempos.push_back(tiempo); 
@@ -67,21 +70,39 @@ void pusheardatos(vector<double>& tiempos, double tiempo, vector<double>& areas,
 
 void areatotal(double limiteinferior, double limitesuperior) {
     vector<double> areas; 
-    vector<double> tiempos; 
+    vector<double> tiempos;
     double tolerancia = pow(10, -tolerancia_general); 
-    while(true) { 
+    ofstream myfile2(n_archivo_2);
+    while(true) {
         double altura = 0; 
-        double areatotal_n_trapecio = 0; 
+        double areatotal_n_trapecio = 0;
+        double area_actual = 0; 
         double temp = limiteinferior; 
         altura = (limitesuperior - limiteinferior) / contadordetrapecios; 
 
-        auto start = chrono::steady_clock::now(); 
-        areatotal_n_trapecio = calculartrapecio_n(contadordetrapecios, altura, temp, areatotal_n_trapecio); 
-        auto end = chrono::steady_clock::now();
+        //auto start = chrono::steady_clock::now(); 
+        //areatotal_n_trapecio = calculartrapecio_n(contadordetrapecios, altura, temp, areatotal_n_trapecio); 
         
-        auto duracion_ns = duration_cast<nanoseconds>(end - start).count(); 
-        pusheardatos(tiempos, duracion_ns, areas, areatotal_n_trapecio); 
+        myfile2 << static_cast<int>(contadordetrapecios) << ";";
         
+        cout << static_cast<int>(contadordetrapecios);
+        for(int i=0; i < contadordetrapecios; i++) {
+            unique_ptr<Trapecio> trapecio(new Trapecio(altura, y(temp + altura), y(temp))); 
+            area_actual = trapecio -> calculararea();
+            myfile2 << area_actual << ";";
+            cout << " " << area_actual << " ";
+            areatotal_n_trapecio = areatotal_n_trapecio + area_actual; 
+            temp = temp + altura;
+        }
+        cout << " " << areatotal_n_trapecio <<endl;
+        
+        //auto end = chrono::steady_clock::now();
+        
+        //auto duracion_ns = duration_cast<nanoseconds>(end - start).count(); 
+        //pusheardatos(tiempos, duracion_ns, areas, areatotal_n_trapecio); 
+        
+        areas.push_back(areatotal_n_trapecio);
+
         if(areas.size() > 1 && abs(areas[contadordetrapecios - 1] - areas[contadordetrapecios - 2]) < tolerancia) { 
             //generararchivo(tiempos, areas); // Genera el archivo con los datos
             cout << endl;
@@ -90,9 +111,12 @@ void areatotal(double limiteinferior, double limitesuperior) {
             cout << "Decimales trabajados: " << precision_general << endl; 
             cout << "Tolerancia usada: " << tolerancia << endl; 
             cout << endl;
-            cout << "Archivo " << n_archivo << " creado" << endl; 
+            //cout << "Archivo " << n_archivo << " creado" << endl;
+            myfile2 << areatotal_n_trapecio;
+            myfile2.close(); 
             break; 
         }
+        myfile2 << areatotal_n_trapecio << endl;
         contadordetrapecios++; 
     }
 }
@@ -115,10 +139,9 @@ ostream& precision(ostream& os) {
     return os; 
 }
 
-// Función principal
 int main() {
     cout << precision; 
-    saludarsegunhora(); 
+    saludarsegunhora();
     while(true) { 
         double limitesuperior; 
         double limiteinferior; 

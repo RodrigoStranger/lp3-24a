@@ -28,7 +28,7 @@ public:
     double calculararea() {return ((basemayor + basemenor) * altura) / 2; }
 };
 
-double y(double x) { return 2 * pow(x, 2) + 1;}
+double y(double x) { return 7 * sqrt(x);}
 
 /*
 void generararchivo(vector<double> tiempos, vector<double> areas) {
@@ -85,16 +85,16 @@ void areatotal(double limiteinferior, double limitesuperior) {
         
         myfile2 << static_cast<int>(contadordetrapecios) << ";";
         
-        cout << static_cast<int>(contadordetrapecios);
+        //cout << static_cast<int>(contadordetrapecios);
         for(int i=0; i < contadordetrapecios; i++) {
             unique_ptr<Trapecio> trapecio(new Trapecio(altura, y(temp + altura), y(temp))); 
             area_actual = trapecio -> calculararea();
             myfile2 << area_actual << ";";
-            cout << " " << area_actual << " ";
+            //cout << " " << area_actual << " ";
             areatotal_n_trapecio = areatotal_n_trapecio + area_actual; 
             temp = temp + altura;
         }
-        cout << " " << areatotal_n_trapecio <<endl;
+        //cout << " " << areatotal_n_trapecio <<endl;
         
         //auto end = chrono::steady_clock::now();
         
@@ -126,7 +126,7 @@ void saludarsegunhora() {
     tm *horaLocal = localtime(&ahora); 
     int hora = horaLocal->tm_hour; 
     if (hora >= 6 && hora < 12) { 
-        cout << "Buenos días, al sistema para hallar la integral definida aproximada con el metodo del trapecio" << endl; 
+        cout << "Buenos dias, al sistema para hallar la integral definida aproximada con el metodo del trapecio" << endl; 
     } else if (hora >= 12 && hora < 18) {
         cout << "Buenas tardes, al sistema para hallar la integral definida aproximada con el metodo del trapecio" << endl; 
     } else {
